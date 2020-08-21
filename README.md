@@ -2,6 +2,8 @@
 
 Regex builder for amino acid chains.
 
+**Warning**: Work in progress, very experimental library and my very first crate.
+
 ## Documentation
 
 ## Setup
@@ -27,22 +29,29 @@ aa-regex = "0.1.0"
 // ...
 ```
 
-### Trypsin cleavage site
+### Phospohorylation site
 
 ```rust
 // ...
 ```
 
+### Phosphatase site
 
+```rust
+// ...
+```
 
 ## Future features
 
+- [ ] Macro
 - [ ] generate a Regex object instead of a string
 - [ ] suport different regex engines
+- [ ] crate with endopeptidases regexs
+- [ ] lowercase support
 
-## See also
+## Ideas & bugs
 
-- endopeptidases-regex: WIP crate implementing known endopeptidases cleavage motifs.
+Please create a new issue on the [project repository](https://github.com/jeanmanguy/aa-regex/issues).
 
 ## License
 

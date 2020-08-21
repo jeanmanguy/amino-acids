@@ -1,0 +1,13 @@
+[package]
+name = "aa-regex"
+version = "0.1.0"
+authors = ["Jean Manguy <jean@manguy.eu>"]
+edition = "2018"
+description = "Regex builder for amino acid chains."
+readme = "README.md"
+keywords = ["regex", "bioinformatics"]
+categories = ["science"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

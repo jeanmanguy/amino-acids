@@ -3,11 +3,30 @@ name = "aa-regex"
 version = "0.1.0"
 authors = ["Jean Manguy <jean@manguy.eu>"]
 edition = "2018"
-description = "Regex builder for amino acid chains."
+description = """
+Utility macros to build regular expression matching protein sequences.
+"""
 readme = "README.md"
-keywords = ["regex", "bioinformatics"]
+repository = "https://github.com/jeanmanguy/aa-regex"
+keywords = ["regex", "bioinformatics", "macro"]
 categories = ["science"]
+license = "Apache-2.0"
+
+publish = false
+
+
+[lib]
+path = "src/lib.rs"
+proc-macro = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+displaydoc = "0.1"
+thiserror = "1.0"
+syn = "1.0"
+proc-macro2 = "1.0"
+
+[dev-dependencies]
+regex = "1.3"
+trybuild = "1.0"

@@ -1,6 +1,25 @@
-//! Macros for peptidic sequences
+//! # Macros for peptidic sequences regular expressions
 //!
 //! Collection of macros to help crafting regular expression matching peptidic sequences.
+//!
+//! ## Usage
+//!
+//! ```rust
+//! use aa_regex::{any, except};
+//!
+//! let any_amino_acid = any!();
+//! // => "[ARNDCEQGHILKMFPSTWYV]"
+//!
+//! let any_aromatics = any!('W', 'F', 'Y');
+//! // => "[WFY]"
+//!
+//! let no proline = except!('P');
+//! // => "[ARNDCEQGHILKMFSTWYV]"
+//!
+//! // concatenation
+//! concat!(any!('R', 'H', 'K'), except!('P'))
+//! // => "[RHK][ARNDCEQGHILKMFSTWYV]"
+//! ```
 use proc_macro::TokenStream;
 use syn::{
     parse::{Parse, ParseStream},
@@ -94,9 +113,11 @@ impl AaRegexBuilder for AnyInput {
     }
 }
 
-/// Any amino acid or any of...
+/// # Any amino acid or any of...
 ///
 /// Any of all valid amino acids or any of the selected amino acids
+///
+/// ## Usage
 ///
 /// ```
 /// #[macro_use]
@@ -105,6 +126,11 @@ impl AaRegexBuilder for AnyInput {
 /// let some = any!('C', 'D', 'E');
 /// let all = any!();
 /// ```
+///
+/// ## Errors
+///
+/// - non amino acid characters
+///  
 #[proc_macro]
 pub fn any(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as AnyInput);
@@ -153,7 +179,9 @@ impl AaRegexBuilder for ExceptInput {
     }
 }
 
-/// Except some amino acids
+/// # Except some amino acids
+///
+/// ## Usage
 ///
 /// ```
 /// #[macro_use]
@@ -161,6 +189,12 @@ impl AaRegexBuilder for ExceptInput {
 ///
 /// let some = except!('C', 'D', 'E');
 /// ```
+///
+/// ## Errors
+///
+/// - non amino acid characters
+/// - trying to except all amnino acids
+///
 #[proc_macro]
 pub fn except(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ExceptInput);

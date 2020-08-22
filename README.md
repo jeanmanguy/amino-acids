@@ -41,6 +41,7 @@ let any_aromatics = any!('W', 'F', 'Y');
 use aa_regex::except;
 
 let no proline = except!('P');
+// => "[ARNDCEQGHILKMFSTWYV]"
 ```
 
 ### Aliases

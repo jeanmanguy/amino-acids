@@ -13,6 +13,7 @@ keywords = ["regex", "bioinformatics", "macro"]
 categories = ["science"]
 license = "Apache-2.0"
 publish = true
+exclude = [".github/*"]
 
 [lib]
 path = "src/lib.rs"

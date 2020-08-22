@@ -1,68 +1,79 @@
-/// Valid one letter code amino acid
-const AMINO_ACIDS_LIST: &str = r"ARNDCEQGHILKMFPSTWYV";
-
-/// Any amino acids
-///
-/// Note: Only uppercase amino acids codes are supported.
-///
-/// # Examples
-/// ```
-/// use aa_regex::aa;
-/// let any_aa: String = aa::any();
-/// assert_eq!(any_aa, "[ARNDCEQGHILKMFPSTWYV]")
-/// ```
-#[inline]
-pub fn any() -> String {
-    format!("[{}]", AMINO_ACIDS_LIST)
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __regex_start {
+    () => {
+        "["
+    };
 }
 
-#[inline]
-fn any_ofs(x: &str) -> String {
-    // TODO: check correct aa
-    format!("[{}]", x)
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __regex_end {
+    () => {
+        "]"
+    };
 }
 
-#[inline]
-pub fn any_except(exceptions: &str) -> String {
-    // TODO: check if exceptions are valid amino acids
-    // TODO: make version acceptiing a Vec of exceptions instead
-    let mut aas = any();
-    aas.retain(|c| !exceptions.contains(c));
-    aas
+#[macro_export]
+macro_rules! all {
+    () => {
+        "ARNDCEQGHILKMFPSTWYV"
+    };
 }
 
-pub fn any_positive() -> String {
-    any_ofs("RHK")
+#[macro_export]
+macro_rules! any {
+    () => {
+        concat!($crate::__regex_start!(), $crate::all!(), $crate::__regex_end!())
+    };
+    ($($aa:expr),+) => {
+        concat!(
+            // start any bracket + comma
+            $crate::__regex_start!()
+            ,
+            // the amino acid to include + a comma
+            $($aa ,)+
+            // end any bracket (final comma provided by the repetition)
+            $crate::__regex_end!()
+        )
+    };
 }
 
-pub fn any_except_positive() {
-    todo!()
+// #[inline]
+// pub fn any_except(exceptions: &str) -> String {
+//     // TODO: check if exceptions are valid amino acids
+//     // TODO: make version acceptiing a Vec of exceptions instead
+//     let mut aas = any_aa();
+//     aas.retain(|c| !exceptions.contains(c));
+//     aas
+// }
+
+#[macro_export]
+macro_rules! charged_pos {
+    () => {
+        "[RHK]"
+    };
 }
 
-pub fn any_except_negative() -> String {
-    any_ofs("DE")
+#[macro_export]
+macro_rules! no_charged_pos {
+    () => {
+        "[ANDCEQGILMFPSTWYV]"
+    };
 }
 
-/// Any aromatics
-///
-/// - Tyrosine
-/// - Tryptophan
-/// - Phenylalanine
-///
-/// Note: Only uppercase amino acids codes are supported.
-///
-/// # Examples
-/// ```
-/// use aa_regex::aa;
-/// let any_aa: String = aa::any_aromatic();
-/// assert_eq!(any_aa, "[YWF]")
-/// ```
-pub fn any_aromatic() -> String {
-    any_ofs("YWF")
+#[macro_export]
+macro_rules! charged_neg {
+    () => {
+        "[DE]"
+    };
 }
 
-pub fn any_except_aromatic() {
-    todo!()
+#[macro_export]
+macro_rules! no_charged_neg {
+    () => {
+        "[ARNCQGHILKMFPSTWYV]"
+    };
 }
 
 #[cfg(test)]
@@ -72,16 +83,9 @@ mod tests {
 
     #[test]
     fn test_any() {
-        assert_eq!(any().len(), 22);
-    }
-
-    #[test]
-    fn test_any_ofs() {
-        assert_eq!(any().len(), 22);
-    }
-
-    #[test]
-    fn test_any_except() {
-        assert_eq!(any_ofs("CG").len(), 4);
+        // TODO: split and use test case
+        assert_eq!(any!().len(), 22);
+        assert_eq!(any!('C'), "[C]");
+        assert_eq!(any!("C", "G"), "[CG]");
     }
 }

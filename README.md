@@ -1,5 +1,9 @@
 # aa-regex
 
+![Rust](https://github.com/jeanmanguy/aa-regex/workflows/Rust/badge.svg?branch=master)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+
 Utility macros to build regular expression matching protein sequences.
 
 **Warning**: Work in progress, very experimental library, this is my very first crate.

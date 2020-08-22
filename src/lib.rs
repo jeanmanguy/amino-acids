@@ -42,9 +42,28 @@ fn build<T: AaRegexBuilder + Sized>(aas: T) -> Result<proc_macro2::TokenStream> 
     aas.build()
 }
 
-struct AaInput(Vec<char>);
+fn join_regex_aa(aas: &[char]) -> Result<proc_macro2::TokenStream> {
+    let mut out = String::new();
+    let joined = aas.to_owned().into_iter().collect::<String>();
 
-impl Parse for AaInput {
+    if aas.len() == 1 {
+        out += q!();
+        out += &joined;
+        out += q!();
+    } else {
+        out += any_start!();
+        out += &joined;
+        out += any_end!();
+    }
+
+    Ok(out.parse::<proc_macro2::TokenStream>().unwrap()) // TODO: get rid of unwrap
+}
+
+/* ----------------------------------- Any ---------------------------------- */
+
+struct AnyInput(Vec<char>);
+
+impl Parse for AnyInput {
     fn parse(input: ParseStream) -> Result<Self> {
         let mut aas: Vec<char> = Vec::new();
 
@@ -65,29 +84,13 @@ impl Parse for AaInput {
             }
         }
 
-        Ok(AaInput(aas))
+        Ok(AnyInput(aas))
     }
 }
 
-impl AaRegexBuilder for AaInput {
+impl AaRegexBuilder for AnyInput {
     fn build(&self) -> Result<proc_macro2::TokenStream> {
-        let mut out = String::new();
-
-        let joined = self.0.to_owned().into_iter().collect::<String>();
-
-        if self.0.len() == 1 {
-            out += q!();
-            out += &joined;
-            out += q!();
-        } else {
-            out += any_start!();
-            out += &joined;
-            out += any_end!();
-        }
-
-        let result = out.parse::<proc_macro2::TokenStream>().unwrap();
-
-        Ok(result)
+        join_regex_aa(&self.0)
     }
 }
 
@@ -104,7 +107,63 @@ impl AaRegexBuilder for AaInput {
 /// ```
 #[proc_macro]
 pub fn any(input: TokenStream) -> TokenStream {
-    let input = parse_macro_input!(input as AaInput);
+    let input = parse_macro_input!(input as AnyInput);
+    build(input)
+        .unwrap_or_else(|err| err.to_compile_error())
+        .into()
+}
+
+/* --------------------------------- Except --------------------------------- */
+
+struct ExceptInput(Vec<char>);
+
+impl Parse for ExceptInput {
+    fn parse(input: ParseStream) -> Result<Self> {
+        let mut aas_to_remove: Vec<char> = Vec::new();
+
+        loop {
+            let aa = input.parse::<syn::LitChar>()?;
+            if all_aa_vec!().contains(&aa.value()) {
+                aas_to_remove.push(aa.value());
+            } else {
+                return Err(Error::new(aa.span(), "expected amino acid 1-letter code"));
+            }
+            if input.parse::<Option<Token![,]>>()?.is_none() {
+                // no comma -> end
+                break;
+            }
+        }
+        let mut aas = all_aa_vec!();
+        aas.retain(|c| !aas_to_remove.contains(c));
+
+        if aas.is_empty() {
+            return Err(Error::new(
+                input.span(),
+                "cannot remove all the possible amino acids",
+            ));
+        }
+
+        Ok(ExceptInput(aas))
+    }
+}
+
+impl AaRegexBuilder for ExceptInput {
+    fn build(&self) -> Result<proc_macro2::TokenStream> {
+        join_regex_aa(&self.0)
+    }
+}
+
+/// Except some amino acids
+///
+/// ```
+/// #[macro_use]
+///  use aa_regex::except;
+///
+/// let some = except!('C', 'D', 'E');
+/// ```
+#[proc_macro]
+pub fn except(input: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(input as ExceptInput);
     build(input)
         .unwrap_or_else(|err| err.to_compile_error())
         .into()

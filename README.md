@@ -37,7 +37,11 @@ let any_aromatics = any!('W', 'F', 'Y');
 
 ### Except
 
-TODO
+```rust
+use aa_regex::except;
+
+let no proline = except!('P');
+```
 
 ### Aliases
 

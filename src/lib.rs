@@ -13,11 +13,11 @@
 //! let any_aromatics = any!('W', 'F', 'Y');
 //! // => "[WFY]"
 //!
-//! let no proline = except!('P');
+//! let no_proline = except!('P');
 //! // => "[ARNDCEQGHILKMFSTWYV]"
 //!
 //! // concatenation
-//! concat!(any!('R', 'H', 'K'), except!('P'))
+//! let motif = concat!(any!('R', 'H', 'K'), except!('P'));
 //! // => "[RHK][ARNDCEQGHILKMFSTWYV]"
 //! ```
 use proc_macro::TokenStream;

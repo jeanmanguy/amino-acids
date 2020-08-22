@@ -1,6 +1,6 @@
 # aa-regex
 
-Regex builder for amino acid chains.
+Utility macros to build regular expression matching protein sequences.
 
 **Warning**: Work in progress, very experimental library and my very first crate.
 
@@ -40,14 +40,6 @@ aa-regex = "0.1.0"
 ```rust
 // ...
 ```
-
-## Future features
-
-- [ ] Macro
-- [ ] generate a Regex object instead of a string
-- [ ] suport different regex engines
-- [ ] crate with endopeptidases regexs
-- [ ] lowercase support
 
 ## Ideas & bugs
 

@@ -22,7 +22,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-aa-regex = "0.2.4"
+aa-regex = "0.2.5"
 ```
 
 

@@ -2,7 +2,7 @@
 
 ![Rust](https://github.com/jeanmanguy/aa-regex/workflows/Rust/badge.svg?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
+[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa_regex)
 
 Utility macros to build regular expression matching protein sequences.
 
@@ -18,7 +18,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-aa-regex = { git = "https://github.com/jeanmanguy/aa-regex" }
+aa-regex = "0.2.4"
 ```
 
 ## Usage

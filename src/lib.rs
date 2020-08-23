@@ -8,17 +8,17 @@
 //! use aa_regex::{any, except};
 //!
 //! let any_amino_acid = any!();
-//! // => "[ARNDCEQGHILKMFPSTWYV]"
+//! // => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
 //!
 //! let any_aromatics = any!('W', 'F', 'Y');
-//! // => "[WFY]"
+//! // => let any_aromatics = "[WFY]";
 //!
 //! let no_proline = except!('P');
-//! // => "[ARNDCEQGHILKMFSTWYV]"
+//! // => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
 //!
 //! // concatenation
 //! let motif = concat!(any!('R', 'H', 'K'), except!('P'));
-//! // => "[RHK][ARNDCEQGHILKMFSTWYV]"
+//! // => let motif = "[RHK][ARNDCEQGHILKMFSTWYV]";
 //! ```
 use proc_macro::TokenStream;
 use syn::{

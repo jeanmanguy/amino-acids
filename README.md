@@ -1,8 +1,12 @@
 # aa-regex
 
-![Rust](https://github.com/jeanmanguy/aa-regex/workflows/Rust/badge.svg?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+
+[![Rust](https://github.com/jeanmanguy/aa-regex/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/aa-regex/actions?query=workflow%3ARust)
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa_regex)
+[![Crates.io version](https://img.shields.io/crates/v/aa_regex)](https://crates.io/crates/aa-regex/)
+[![Crates.io license](https://img.shields.io/crates/l/aa_regex)](https://github.com/jeanmanguy/aa-regex/blob/master/LICENSE)
 
 Utility macros to build regular expression matching protein sequences.
 
@@ -21,7 +25,14 @@ Add this to your `Cargo.toml`:
 aa-regex = "0.2.4"
 ```
 
+
 ## Usage
+
+All the macros work on this schema, the macros expand to a string (with its quotes):
+
+```
+<macro_name>!('<character>', '<character>') -> "<String>"
+```
 
 ### Any
 
@@ -29,10 +40,10 @@ aa-regex = "0.2.4"
 use aa_regex::any;
 
 let any_amino_acid = any!();
-// => "[ARNDCEQGHILKMFPSTWYV]"
+// => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
 
 let any_aromatics = any!('W', 'F', 'Y');
-// => "[WFY]"
+// => let any_aromatics = "[WFY]";
 ```
 
 ### Except
@@ -41,7 +52,7 @@ let any_aromatics = any!('W', 'F', 'Y');
 use aa_regex::except;
 
 let no_proline = except!('P');
-// => "[ARNDCEQGHILKMFSTWYV]"
+// => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
 ```
 
 ### Aliases
@@ -56,10 +67,11 @@ TODO
 
 ### Concatenation
 
-You can use the `concat!` macro from `std` to assemble the regular expression.
+You can use the `std::concat!` macro to assemble the regular expression.
 
 ```rust
-concat!(any!('D', 'E'), any!('R', 'H', 'K'))
+let my regex = concat!(any!('D', 'E'), any!('R', 'H', 'K'));
+// => let my regex = "[DE][RHK]";
 ```
 
 ## Ideas & bugs

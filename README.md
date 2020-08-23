@@ -40,7 +40,7 @@ let any_aromatics = any!('W', 'F', 'Y');
 ```rust
 use aa_regex::except;
 
-let no proline = except!('P');
+let no_proline = except!('P');
 // => "[ARNDCEQGHILKMFSTWYV]"
 ```
 

@@ -1,4 +1,7 @@
-# aa-colour
+# aa-colour [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+[![Rust](https://github.com/jeanmanguy/aa-colour/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/aa-regex/actions?query=workflow%3ARust)
+[![Crates.io license](https://img.shields.io/crates/l/aa_regex)](https://github.com/jeanmanguy/aa-regex/blob/master/LICENSE)
 
 🎨 Add colours to your amino acids in the terminal.
 

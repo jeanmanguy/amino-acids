@@ -1,8 +1,8 @@
-# 🎨 aa-colour
+# aa-colour
+
+🎨 Add colours to your amino acids in the terminal.
 
 Work in progress and experimnetal crate. Changes are likely to break the API.
-
-Colourise amino acids in the terminal.
 
 Code inspired from the crates [owo-colors](https://github.com/jam1garner/owo-colors) and [colored](https://github.com/mackwic/colored).
 

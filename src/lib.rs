@@ -1,5 +1,12 @@
 //! AA-colour
 //!
+//! Work in progress
+//!
+//! ```rust
+//! use aa_colour::{AaColour, palettes::Clustal};
+//!
+//! println!("{}", AaColour::colour::<Clustal>(&'A').unwrap());
+//! ```
 
 pub mod error;
 pub mod palettes;
@@ -10,12 +17,12 @@ use palettes::{Palette, Rgb};
 
 /// Amino acid background colour
 #[derive(Debug, Clone)]
-pub struct AaColourDisplay {
+pub struct AaColour {
     aa: char,
     colour: &'static Rgb,
 }
 
-impl fmt::Display for AaColourDisplay {
+impl fmt::Display for AaColour {
     #[inline(always)]
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.write_fmt(format_args!(
@@ -27,12 +34,29 @@ impl fmt::Display for AaColourDisplay {
     }
 }
 
+impl AaColour {
+    pub fn colour<P: Palette>(x: &char) -> Result<AaColour, AaColourError> {
+        let col = match_char_aa::<P>(x)?;
+
+        Ok(AaColour {
+            aa: *x,
+            colour: col,
+        })
+    }
+
+    pub fn blank<P: Palette>(x: &char) -> Result<AaColour, AaColourError> {
+        Ok(AaColour {
+            aa: *x,
+            colour: P::GAP,
+        })
+    }
+}
+
 macro_rules! match_aa {
     ($(
         $aa:literal $colour:ident
     ),* $(,)?) => {
         fn match_char_aa<P: Palette>(x: &char) -> Result<&'static Rgb, AaColourError> {
-            // TODO: use const lookup table
             match x.to_ascii_uppercase() {
                 $(
                     $aa => Ok(P::$colour),
@@ -67,47 +91,32 @@ match_aa! {
     '-' GAP
 }
 
-pub trait AaColourise {
-    fn colourise<P: Palette>(&self) -> Result<AaColourDisplay, AaColourError>;
-
-    fn col_aa<P: Palette>(x: &Self) -> Result<AaColourDisplay, AaColourError> {
-        x.colourise::<P>()
-    }
-}
-
-impl AaColourise for char {
-    fn colourise<P: Palette>(&self) -> Result<AaColourDisplay, AaColourError> {
-        let col = match_char_aa::<P>(self)?;
-
-        Ok(AaColourDisplay {
-            aa: *self,
-            colour: col,
-        })
-    }
-}
-
-impl AaColourise for u8 {
-    fn colourise<P: Palette>(&self) -> Result<AaColourDisplay, AaColourError> {
-        let aa = *self as char;
-        let col = match_char_aa::<P>(&aa)?;
-
-        Ok(AaColourDisplay { aa, colour: col })
-    }
-}
-
 #[cfg(test)]
 mod test {
     use super::*;
     use crate::palettes::Clustal;
 
     #[test]
-    fn testme2() {
+    fn all_amino_acids_clustal() {
         let aas = vec![
             'A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T',
             'V', 'W', '-',
         ];
         for aa in aas {
-            println!("{}", AaColourise::col_aa::<Clustal>(&aa).unwrap());
+            print!("{}", AaColour::colour::<Clustal>(&aa).unwrap());
         }
+        println!(); //
+    }
+
+    #[test]
+    fn all_amino_acids_clustal_blanks() {
+        let aas = vec![
+            'A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T',
+            'V', 'W', '-',
+        ];
+        for aa in aas {
+            print!("{}", AaColour::blank::<Clustal>(&aa).unwrap());
+        }
+        println!(); //
     }
 }

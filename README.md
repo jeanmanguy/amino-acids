@@ -1,2 +1,25 @@
-# aa-colour
-🎨 palettes for amino acids
+# 🎨 aa-colour
+
+Work in progress and experimnetal crate. Changes are likely to break the API.
+
+Colourise amino acids in the terminal.
+
+Code inspired from the crates [owo-colors](https://github.com/jam1garner/owo-colors) and [colored](https://github.com/mackwic/colored).
+
+## Usage
+
+```rust
+use aa_colour::{AaColourise, palettes::Clustal};
+
+println!("{}", AaColour::colour::<Clustal>(&'A').unwrap());
+```
+
+## Features
+
+- [X] colourise a single amino acid according to different palettes
+  - [X] Clustal
+  - [ ] Amino acid scales
+    - Hydrophobicity
+    - Disorder propensity
+    - etc.
+- [X] allow for amino acids to not be coloured (for protein alignments)

@@ -12,6 +12,7 @@ Code inspired from the crates [owo-colors](https://github.com/jam1garner/owo-col
 use aa_colour::{AaColourise, palettes::Clustal};
 
 println!("{}", AaColour::colour::<Clustal>(&'A').unwrap());
+println!("{}", AaColour::blank::<Clustal>(&'-').unwrap());
 ```
 
 ## Features

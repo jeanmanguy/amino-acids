@@ -6,6 +6,7 @@
 //! use aa_colour::{AaColour, palettes::Clustal};
 //!
 //! println!("{}", AaColour::colour::<Clustal>(&'A').unwrap());
+//! println!("{}", AaColour::blank::<Clustal>(&'-').unwrap());
 //! ```
 
 pub mod error;

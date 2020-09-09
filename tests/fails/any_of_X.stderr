@@ -3,9 +3,3 @@ error: Not an amino acid
   |
 4 |     let _wrong = any_of!(x);
   |                          ^
-
-error: expected expression, found end of macro arguments
- --> $DIR/any_of_X.rs:4:18
-  |
-4 |     let _wrong = any_of!(x);
-  |                  ^^^^^^^^^^

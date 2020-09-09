@@ -20,7 +20,7 @@ let motif = concat!(any_of!(R, H, K), except!(P)); // => let motif = "[RHK][ARND
 assert_eq!(motif, "[RHK][ARNDCEQGHILKMFSTWYV]")
  ```
 */
-#![warn(clippy::all, clippy::pedantic, clippy::nursery, clippy::cargo)]
+// #![warn(clippy::all, clippy::pedantic, clippy::nursery, clippy::cargo)]
 // #![allow(dead_code)]
 // #![allow(clippy::missing_errors_doc)]
 

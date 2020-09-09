@@ -28,12 +28,6 @@ aa-regex = "0.3"
 
 ## Usage
 
-All the macros work on this schema, the macros expand to a string (with its quotes):
-
-```
-<macro_name>!('<character>', '<character>') -> "<String>"
-```
-
 ### Any
 
 ```rust

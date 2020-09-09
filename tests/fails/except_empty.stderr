@@ -1,7 +1,14 @@
-error: unexpected end of input, expected literal
+error: no exceptions to add
  --> $DIR/except_empty.rs:4:17
   |
 4 |     let wrong = except!();
   |                 ^^^^^^^^^
   |
+  = help: add exceptions like `except!(P)` to avoid prolines for example
   = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: expected expression, found end of macro arguments
+ --> $DIR/except_empty.rs:4:17
+  |
+4 |     let wrong = except!();
+  |                 ^^^^^^^^^

@@ -24,6 +24,8 @@ macro_rules! palette {
     };
 }
 
+palette! {A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, GAP}
+
 macro_rules! impl_palette {
     ($name:ident ($(
         $aa:ident $colour:path
@@ -40,8 +42,6 @@ macro_rules! impl_palette {
 
     };
 }
-
-palette! {A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, GAP}
 
 /* --------------------------------- colours -------------------------------- */
 
@@ -69,7 +69,7 @@ add_colour! {Orange, 229u8, 161u8, 91u8}
 add_colour! {Teal, 0u8, 178u8, 178u8}
 add_colour! {Purple, 191u8, 71u8, 191u8}
 
-/* --------------------------------- CLustal -------------------------------- */
+/* --------------------------------- Clustal -------------------------------- */
 
 impl_palette! {
     Clustal

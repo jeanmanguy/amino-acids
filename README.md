@@ -1,11 +1,11 @@
-# aa-colour [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+# aa-colour ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 
 [![Rust](https://github.com/jeanmanguy/aa-colour/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/aa-regex/actions?query=workflow%3ARust)
+[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa-colour)
+[![Crates.io version](https://img.shields.io/crates/v/aa-colour)](https://crates.io/crates/aa-colour/)
 [![Crates.io license](https://img.shields.io/crates/l/aa_regex)](https://github.com/jeanmanguy/aa-regex/blob/master/LICENSE)
 
 🎨 Add colours to your amino acids in the terminal.
-
-Work in progress and experimnetal crate. Changes are likely to break the API.
 
 Code inspired from the crates [owo-colors](https://github.com/jam1garner/owo-colors) and [colored](https://github.com/mackwic/colored).
 

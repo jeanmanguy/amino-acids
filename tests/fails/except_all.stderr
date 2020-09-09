@@ -1,11 +1,11 @@
-error: cannot remove all the possible amino acids
+error: Cannot add more exceptions
+ --> $DIR/except_all.rs:4:82
+  |
+4 |     let wrong = except!(A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V);
+  |                                                                                  ^
+
+error: expected expression, found end of macro arguments
  --> $DIR/except_all.rs:4:17
   |
-4 |       let wrong = except!(
-  |  _________________^
-5 | |         'A', 'R', 'N', 'D', 'C', 'E', 'Q', 'G', 'H', 'I', 'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W',
-6 | |         'Y', 'V'
-7 | |     );
-  | |_____^
-  |
-  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)
+4 |     let wrong = except!(A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V);
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

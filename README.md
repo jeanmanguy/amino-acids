@@ -41,9 +41,18 @@ use aa_regex::any;
 
 let any_amino_acid = any!();
 // => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
+```
 
-let any_aromatics = any!('W', 'F', 'Y');
-// => let any_aromatics = "[WFY]";
+### Any of
+
+```rust
+use aa_regex::any_of;
+
+let any_amino_acid = any!();
+// => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
+
+ let any_aromatics = any_of!(W, F, Y); // => let any_aromatics = "[WFY]";
+ assert_eq!(any_aromatics, "[WFY]");
 ```
 
 ### Except
@@ -51,8 +60,8 @@ let any_aromatics = any!('W', 'F', 'Y');
 ```rust
 use aa_regex::except;
 
-let no_proline = except!('P');
-// => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
+let no_proline = except!(P); // => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
+assert_eq!(no_proline, "[ARNDCEQGHILKMFSTWYV]");
 ```
 
 ### Aliases

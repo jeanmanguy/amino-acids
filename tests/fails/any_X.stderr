@@ -1,5 +1,0 @@
-error: expected amino acid 1-letter code
- --> $DIR/any_X.rs:4:22
-  |
-4 |     let wrong = any!('x');
-  |                      ^^^

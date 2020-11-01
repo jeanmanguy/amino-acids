@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- next-header -->
 
-
 ## [Unreleased] - ReleaseDate
+
+
+## [0.3.2] - 2020-11-01
 
 ### Modified
 
@@ -42,4 +44,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `any!` macro
 
 <!-- next-url -->
-[Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-regex-v0.3.2...HEAD
+[0.3.2]: https://github.com/jeanmanguy/rust-amino-acids/compare/v0.3.0<...aa-regex-v0.3.2

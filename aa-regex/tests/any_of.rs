@@ -8,6 +8,7 @@ fn one() {
 
 #[test]
 fn one_regex() {
+    #![allow(clippy::trivial_regex)]
     let re = Regex::new(any_of!(C));
     assert!(re.is_ok())
 }

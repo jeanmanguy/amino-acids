@@ -1,0 +1,5 @@
+error: Not an amino acid
+ --> $DIR/any_of_X.rs:4:26
+  |
+4 |     let _wrong = any_of!(x);
+  |                          ^

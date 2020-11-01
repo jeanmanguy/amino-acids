@@ -1,0 +1,10 @@
+error: no exceptions to add
+
+  = help: add exceptions like `except!(P)` to avoid prolines for example
+
+ --> $DIR/except_empty.rs:4:17
+  |
+4 |     let wrong = except!();
+  |                 ^^^^^^^^^
+  |
+  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)

@@ -1,12 +1,8 @@
 # aa-regex
 
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
-
-[![Rust](https://github.com/jeanmanguy/aa-regex/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/aa-regex/actions?query=workflow%3ARust)
-[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa_regex)
-[![Crates.io version](https://img.shields.io/crates/v/aa_regex)](https://crates.io/crates/aa-regex/)
-[![Crates.io license](https://img.shields.io/crates/l/aa_regex)](https://github.com/jeanmanguy/aa-regex/blob/master/LICENSE)
+![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa-regex)
+[![Crates.io version](https://img.shields.io/crates/v/aa-regex)](https://crates.io/crates/aa-regex/)
 
 Utility macros to build regular expression matching protein sequences.
 
@@ -78,6 +74,14 @@ assert_eq!(motif, "[RHK][ARNDCEQGHILKMFSTWYV]")
 
 Please create a new issue on the [project repository](https://github.com/jeanmanguy/aa-regex/issues).
 
+## Contributing
+
+The project is maintained by Jean Manguy. Please submit a bug report or a feature request [on the Github issues page](https://github.com/jeanmanguy/amino-acids/issues/new/choose).
+
 ## License
 
-Aa-regex is distributed under the terms of the Apache License (Version 2.0). See [LICENSE](./LICENSE) for details.
+`aa-regex` is distributed under the terms of both the MIT license and the
+Apache License (Version 2.0).
+
+See [LICENSE-APACHE](./LICENSE-APACHE) and [LICENSE-MIT](./LICENSE-MIT) for
+details.

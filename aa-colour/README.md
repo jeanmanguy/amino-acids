@@ -1,9 +1,8 @@
-# aa-colour ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+# aa-colour 
 
-[![Rust](https://github.com/jeanmanguy/aa-colour/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/aa-regex/actions?query=workflow%3ARust)
+![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa-colour)
 [![Crates.io version](https://img.shields.io/crates/v/aa-colour)](https://crates.io/crates/aa-colour/)
-[![Crates.io license](https://img.shields.io/crates/l/aa_regex)](https://github.com/jeanmanguy/aa-regex/blob/master/LICENSE)
 
 🎨 Add colours to your amino acids in the terminal.
 
@@ -27,3 +26,16 @@ println!("{}", AaColour::blank::<Clustal>(&'-').unwrap());
     - Disorder propensity
     - etc.
 - [X] allow for amino acids to not be coloured (for protein alignments)
+
+
+## Contributing
+
+The project is maintained by Jean Manguy. Please submit a bug report or a feature request [on the Github issues page](https://github.com/jeanmanguy/amino-acids/issues/new/choose).
+
+## License
+
+`aa-colour` is distributed under the terms of both the MIT license and the
+Apache License (Version 2.0).
+
+See [LICENSE-APACHE](./LICENSE-APACHE) and [LICENSE-MIT](./LICENSE-MIT) for
+details.

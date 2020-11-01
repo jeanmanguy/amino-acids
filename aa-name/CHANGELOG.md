@@ -23,5 +23,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - merge repositories
 
 <!-- next-url -->
-[Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-names-v0.1.1...HEAD
-[0.1.1]: https://github.com/jeanmanguy/rust-amino-acids/compare/cdb9eb4<...aa-names-v0.1.1
+[Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-name-v0.1.1...HEAD
+[0.1.1]: https://github.com/jeanmanguy/rust-amino-acids/compare/cdb9eb4<...aa-name-v0.1.1

@@ -1,15 +1,15 @@
 [package]
-name = "aa-regex"
-version = "0.3.2"
+name = "aa-name"
+version = "0.1.1"
 authors = ["Jean Manguy <jean@manguy.eu>"]
 edition = "2018"
 description = """
-Utility macros to build regular expression matching protein sequences.
+Basic enum and structs to display amino acid names.
 """
 readme = "README.md"
 repository = "https://github.com/jeanmanguy/amino-acids"
 homepage = "https://github.com/jeanmanguy/amino-acids"
-keywords = ["regex", "bioinformatics", "macro"]
+keywords = ["bioinformatics"]
 categories = ["science"]
 license = "MIT/Apache-2.0"
 publish = true
@@ -17,15 +17,8 @@ publish = true
 
 [lib]
 path = "src/lib.rs"
-proc-macro = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-syn = "1.0"
-proc-macro2 = "1.0"
-proc-macro-error = "1.0"
-
-[dev-dependencies]
-regex = "1.4"
-trybuild = "1.0"
+thiserror = "1.0"

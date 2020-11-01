@@ -3,6 +3,9 @@
 Base enum for amino acids (20 basic proteinoformes amino acids)
 
 ``` rust
+use aa_name::AminoAcid;
+use std::convert::TryFrom;
+
 let ala: AminoAcid = "Ala".parse().unwrap();
 assert_eq!(ala, AminoAcid::Alanine);
 
@@ -70,6 +73,9 @@ macro_rules! aa {
         /// One variant for each amino acid
         ///
         /// ``` rust
+        /// use aa_name::AminoAcid;
+        /// use std::convert::TryFrom;
+        ///
         /// let ala: AminoAcid = "Ala".parse().unwrap();
         /// assert_eq!(ala, AminoAcid::Alanine);
         ///

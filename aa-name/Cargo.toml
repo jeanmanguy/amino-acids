@@ -4,7 +4,7 @@ version = "0.1.4-alpha.1"
 authors = ["Jean Manguy <jean@manguy.eu>"]
 edition = "2018"
 description = """
-Basic enum and structs to display amino acid names.
+Basic enum for amino acid names.
 """
 readme = "README.md"
 repository = "https://github.com/jeanmanguy/amino-acids"

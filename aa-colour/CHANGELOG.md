@@ -11,14 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.3] - 2020-11-01
 
-
-## [0.1.2] - 2020-11-01
-
 ### Modified
 
-- merge repositories
+- merged repositories
 
 <!-- next-url -->
 [Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-colour-v0.1.3...HEAD
-[0.1.3]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-colour-v0.1.2...aa-colour-v0.1.3
-[0.1.2]: https://github.com/jeanmanguy/rust-amino-acids/compare/v0.1.1<...aa-colour-v0.1.2
+[0.1.3]: https://github.com/jeanmanguy/amino-acids/releases/tag/aa-colour-v0.1.3

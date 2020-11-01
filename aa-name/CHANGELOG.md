@@ -11,8 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.2] - 2020-11-01
 
-## [0.1.1] - 2020-11-01
-
 ### Added
 
 - `AminoAcid` enum
@@ -22,9 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Modified
 
-- merge repositories
+- merged repositories
 
 <!-- next-url -->
 [Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-name-v0.1.2...HEAD
-[0.1.2]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-name-v0.1.1...aa-name-v0.1.2
-[0.1.1]: https://github.com/jeanmanguy/rust-amino-acids/compare/cdb9eb4<...aa-name-v0.1.1
+[0.1.2]: https://github.com/jeanmanguy/amino-acids/releases/tag/aa-name-v0.1.2

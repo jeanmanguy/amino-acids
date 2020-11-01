@@ -2,7 +2,8 @@
 sign-commit = false
 sign-tag = false
 disable-publish = true
-consolidate-commits = true
+consolidate-commits = false
+no-dev-version = true
 pre-release-replacements = [
     {file="CHANGELOG.md", search="Unreleased", replace="{{version}}"},
     {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}"},

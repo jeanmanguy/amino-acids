@@ -11,12 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.3] - 2020-11-01
 
-
-## [0.3.2] - 2020-11-01
-
 ### Modified
 
-- merge repositories
+- merged repositories
 
 ## [0.3.0] - 2020-09-09
 
@@ -47,5 +44,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- next-url -->
 [Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-regex-v0.3.3...HEAD
-[0.3.3]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa-regex-v0.3.2...aa-regex-v0.3.3
-[0.3.2]: https://github.com/jeanmanguy/rust-amino-acids/compare/v0.3.0<...aa-regex-v0.3.2
+[0.3.3]: https://github.com/jeanmanguy/amino-acids/releases/tag/aa-regex-v0.3.3

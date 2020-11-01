@@ -1,6 +1,6 @@
 # amino-acids
 
-[![Rust](https://github.com/jeanmanguy/amino-acids/workflows/Rust/badge.svg?branch=master)](https://github.com/jeanmanguy/amino-acids/actions?query=workflow%3ARust)
+[![Rust](https://github.com/jeanmanguy/amino-acids/workflows/Rust/badge.svg?branch=main)](https://github.com/jeanmanguy/amino-acids/actions?query=workflow%3ARust)
 
 Suite of Rust crates related to amino acids.
 

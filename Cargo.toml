@@ -2,5 +2,6 @@
 
 members = [
     "aa-colours",
-    "aa-names"
+    "aa-names",
+    "aa-regex"
 ]

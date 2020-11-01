@@ -1,7 +1,0 @@
-error: No argument allowed
- --> $DIR/any_not_empty.rs:4:18
-  |
-4 |     let _wrong = any!(C);
-  |                  ^^^^^^^
-  |
-  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)

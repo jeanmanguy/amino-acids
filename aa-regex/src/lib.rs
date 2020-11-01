@@ -1,4 +1,4 @@
-/*! Macros for peptidic sequences regular expressions
+/*! # Macros for peptidic sequences regular expressions
 
  Collection of macros to help crafting regular expression matching peptidic sequences.
 
@@ -7,23 +7,22 @@
  ```rust
  use aa_regex::{any, any_of, except };
 
-let any = any!(); // => let any = "[ARNDCEQGHILKMFPSTWYV]";
-assert_eq!(any, "[ARNDCEQGHILKMFPSTWYV]");
+ //let any_amino_acid = any!();
+ // => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
 
-let any_aromatics = any_of!(W, F, Y); // => let any_aromatics = "[WFY]";
-assert_eq!(any_aromatics, "[WFY]");
+ let any_aromatics = any_of!(W, F, Y); // => let any_aromatics = "[WFY]";
+ assert_eq!(any_aromatics, "[WFY]");
 
-let no_proline = except!(P); // => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
-assert_eq!(no_proline, "[ARNDCEQGHILKMFSTWYV]");
 
-let motif = concat!(any_of!(R, H, K), except!(P)); // => let motif = "[RHK][ARNDCEQGHILKMFSTWYV]";
-assert_eq!(motif, "[RHK][ARNDCEQGHILKMFSTWYV]")
+ let no_proline = except!(P); // => let no_proline = "[ARNDCEQGHILKMFSTWYV]";
+ assert_eq!(no_proline, "[ARNDCEQGHILKMFSTWYV]");
+
+
+ // concatenation
+ //let motif = concat!(any!('R', 'H', 'K'), except!('P'));
+ // => let motif = "[RHK][ARNDCEQGHILKMFSTWYV]";
  ```
 */
-// #![warn(clippy::all, clippy::pedantic, clippy::nursery, clippy::cargo)]
-// #![allow(dead_code)]
-// #![allow(clippy::missing_errors_doc)]
-
 use proc_macro::{Literal, TokenStream, TokenTree};
 use proc_macro2::Span;
 use proc_macro_error::{abort, proc_macro_error};
@@ -39,41 +38,12 @@ impl Parse for AaInput {
     }
 }
 
-static AA_LIST: &[u8] = b"ARNDCEQGHILKMFPSTWYV";
+static AA_LIST: &[u8] = b"ARNDCEQGHILKMFSTWYVP";
 
-/// Any amino acids
-///
-/// ## Usage
-///
-/// ```
-/// #[macro_use]
-///  use aa_regex::any;
-///
-/// let any = any!(); // => let any = "[ARNDCEQGHILKMFPSTWYV]";
-/// assert_eq!(any, "[ARNDCEQGHILKMFPSTWYV]");
-/// ```
-///
-/// ## Compilation errors
-///
-/// Compilation will fail if:
-///
-/// - arguments are given to the macro
-#[proc_macro]
-#[proc_macro_error]
-pub fn any(input: TokenStream) -> TokenStream {
-    let parsed = parse_macro_input!(input as AaInput);
+// TODO: any
 
-    if !parsed.0.is_empty() {
-        abort!(Span::call_site(), "No argument allowed")
-    }
-
-    // TODO check emty input
-    core::iter::once(TokenTree::Literal(Literal::string(
-        "[ARNDCEQGHILKMFPSTWYV]",
-    )))
-    .collect()
-}
-
+/// # Any amino acid or any of...
+///
 /// Any of the selected amino acids
 ///
 /// ## Usage
@@ -98,18 +68,18 @@ pub fn any(input: TokenStream) -> TokenStream {
 /// - no amino acid to add
 ///  
 #[proc_macro]
-#[proc_macro_error]
 pub fn any_of(input: TokenStream) -> TokenStream {
     let mut buffer = vec![b'['];
+
     let mut counter = 1_usize;
+
     let parsed = parse_macro_input!(input as AaInput);
 
     if parsed.0.is_empty() {
         abort!(Span::call_site(), "no amino acid to add")
     }
-    for x in &parsed.0 {
+    for x in parsed.0.iter() {
         if buffer.len() > 20 {
-            // 21 => 20 aa + [
             abort!(x.span(), "Cannot add more amino acids")
         }
 
@@ -147,7 +117,7 @@ pub fn any_of(input: TokenStream) -> TokenStream {
     .collect()
 }
 
-/// Except some amino acids
+/// # Except some amino acids
 ///
 /// ## Usage
 ///
@@ -183,7 +153,7 @@ pub fn except(input: TokenStream) -> TokenStream {
         abort!(Span::call_site(), "no exceptions to add"; help = "add exceptions like `except!(P)` to avoid prolines for example")
     }
 
-    for x in &parsed.0 {
+    for x in parsed.0.iter() {
         if buffer.len() < 4 {
             abort!(x.span(), "Cannot add more exceptions")
         }

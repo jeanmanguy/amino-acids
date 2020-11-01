@@ -1,5 +1,0 @@
-error: expected identifier
- --> $DIR/any_of_additional_comma.rs:5:26
-  |
-5 |     let _wrong = any_of!(,);
-  |                          ^

@@ -22,19 +22,25 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-aa-regex = "0.3"
+aa-regex = "0.2.5"
 ```
 
 
 ## Usage
+
+All the macros work on this schema, the macros expand to a string (with its quotes):
+
+```
+<macro_name>!('<character>', '<character>') -> "<String>"
+```
 
 ### Any
 
 ```rust
 use aa_regex::any;
 
-let any = any!(); // => let any = "[ARNDCEQGHILKMFPSTWYV]";
-assert_eq!(any, "[ARNDCEQGHILKMFPSTWYV]");
+let any_amino_acid = any!();
+// => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
 ```
 
 ### Any of
@@ -42,8 +48,11 @@ assert_eq!(any, "[ARNDCEQGHILKMFPSTWYV]");
 ```rust
 use aa_regex::any_of;
 
-let any_aromatics = any_of!(W, F, Y); // => let any_aromatics = "[WFY]";
-assert_eq!(any_aromatics, "[WFY]");
+let any_amino_acid = any!();
+// => let any_amino_acid = "[ARNDCEQGHILKMFPSTWYV]";
+
+ let any_aromatics = any_of!(W, F, Y); // => let any_aromatics = "[WFY]";
+ assert_eq!(any_aromatics, "[WFY]");
 ```
 
 ### Except
@@ -70,8 +79,8 @@ TODO
 You can use the `std::concat!` macro to assemble the regular expression.
 
 ```rust
-let motif = concat!(any_of!(R, H, K), except!(P)); // => let motif = "[RHK][ARNDCEQGHILKMFSTWYV]";
-assert_eq!(motif, "[RHK][ARNDCEQGHILKMFSTWYV]")
+let my regex = concat!(any!('D', 'E'), any!('R', 'H', 'K'));
+// => let my regex = "[DE][RHK]";
 ```
 
 ## Ideas & bugs

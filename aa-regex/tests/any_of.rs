@@ -23,15 +23,21 @@ fn some_regex() {
     assert!(re.is_ok())
 }
 
-#[test]
-fn concat() {
-    let multi_position_regex = concat!(any_of!(R), any!(), any_of!(C, D));
-    assert_eq!(multi_position_regex, "R[ARNDCEQGHILKMFPSTWYV][CD]");
-}
+// #[test]
+// fn concat() {
+//     let multi_position_regex = concat!(any_of!(R), any_of!(), any_of!(C, D));
+//     assert_eq!(multi_position_regex, "R[ARNDCEQGHILKMFPSTWYV][CD]");
+// }
+
+// #[test]
+// fn concat_regex() {
+//     let multi_position_regex = concat!(any_of!('R'), any_of!(), any_of!('C', 'D'));
+//     let re = Regex::new(multi_position_regex);
+//     assert!(re.is_ok())
+// }
 
 #[test]
-fn concat_regex() {
-    let multi_position_regex = concat!(any_of!(R), any!(), any_of!(C, D));
-    let re = Regex::new(multi_position_regex);
-    assert!(re.is_ok())
+fn fails() {
+    let t = trybuild::TestCases::new();
+    t.compile_fail("tests/fails/any_of_*.rs");
 }

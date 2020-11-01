@@ -1,7 +1,0 @@
-error: no amino acid to add
- --> $DIR/any_of_empty.rs:4:18
-  |
-4 |     let _wrong = any_of!();
-  |                  ^^^^^^^^^
-  |
-  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)

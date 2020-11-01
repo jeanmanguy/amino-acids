@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
-    "aa-colours"
+    "aa-colours",
+    "aa-names"
 ]

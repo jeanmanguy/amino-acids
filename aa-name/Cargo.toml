@@ -1,6 +1,6 @@
 [package]
 name = "aa-name"
-version = "0.1.3"
+version = "0.1.4-alpha.1"
 authors = ["Jean Manguy <jean@manguy.eu>"]
 edition = "2018"
 description = """

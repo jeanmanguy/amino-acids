@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 <!-- next-header -->
-
 ## [Unreleased] - ReleaseDate
+
+## [0.1.0] - 2020-11-03
 
 ### Added
 
@@ -83,3 +84,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 <!-- next-url -->
+[Unreleased]: https://github.com/jeanmanguy/rust-amino-acids/compare/aa_similarity-v0.1.0...HEAD
+[0.1.0]: https://github.com/jeanmanguy/amino-acids/releases/tag/aa_similarity-v0.1.0

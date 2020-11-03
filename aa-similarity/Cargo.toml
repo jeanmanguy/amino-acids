@@ -22,10 +22,7 @@ path = "src/lib.rs"
 [dependencies]
 aa-name = { path = "../aa-name" }
 
-[dev-dependencies]
-# trybuild = "1.0"
-
 [build-dependencies]
 heck = "0.3.1"
 nom = "6.0"
-aa-name = { path = "../aa-name" }
+aa-name = { path = "../aa-name", version = "0.1.4" }

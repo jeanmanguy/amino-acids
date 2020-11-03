@@ -20,7 +20,7 @@ keywords = ["alignment", "sequence", "BLOSUM", "Dayhoff", "PAM", "substitution m
 path = "src/lib.rs"
 
 [dependencies]
-aa-name = { path = "../aa-name" }
+aa-name = { path = "../aa-name", version = "0.1.4" }
 
 [build-dependencies]
 heck = "0.3.1"

@@ -7,10 +7,43 @@
 
 ## Usage
 
+Add the following to your `Cargo.toml`
+
 ```toml
+[dependencies]
 aa-similarity = "0.1.0"
 ```
 
+
+### Examples
+
+```rust
+use aa_similarity::{Blosum65, Similarity, AminoAcid};
+
+assert_eq!(
+    Blosum65::similarity(
+        AminoAcid::GlutamicAcid,
+        AminoAcid::AsparticAcid
+    ),
+    2
+);
+```
+
+`aa-similarity` re-exports `AminoAcid` from [`aa-name`]. Amino acids from an alignment can be converted from chars or string like so:
+
+```rust
+use aa_similarity::{Blosum62, Similarity, AminoAcid};
+
+let ala = AminoAcid::try_from('A')?;
+let tyr = AminoAcid::try_from('Y')?;
+
+assert_eq!(Blosum62::similarity(ala, tyr), -2);
+```
+
+See: [`aa-name`].
+
+
+[`aa-name`]: https://github.com/jeanmanguy/amino-acids/tree/main/aa-name
 
 ## Supported matrices
 

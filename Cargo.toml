@@ -3,6 +3,7 @@
 members = [
     "aa-colour",
     "aa-name",
-    "aa-regex"
+    "aa-regex",
+    "aa-similarity"
 ]
 

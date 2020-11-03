@@ -1,0 +1,31 @@
+[package]
+name = "aa_similarity"
+description = "Substitution matrices for use in protein sequence analysis and alignment."
+version = "0.1.0"
+authors = ["Jean Manguy <jean@manguy.eu>"]
+edition = "2018"
+build = "build.rs"
+publish = false
+repository = "https://github.com/jeanmanguy/amino-acids"
+homepage = "https://github.com/jeanmanguy/amino-acids"
+readme = "README.md"
+categories = ["science"]
+license = "MIT/Apache-2.0"
+keywords = ["alignment", "sequence", "BLOSUM", "Dayhoff", "PAM", "substitution matrix", "similarity"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+aa-name = { path = "../aa-name" }
+
+[dev-dependencies]
+# trybuild = "1.0"
+
+[build-dependencies]
+heck = "0.3.1"
+nom = "6.0"
+aa-name = { path = "../aa-name" }

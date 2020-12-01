@@ -8,6 +8,15 @@
 
 Code inspired from the crates [owo-colors](https://github.com/jam1garner/owo-colors) and [colored](https://github.com/mackwic/colored).
 
+## Setup
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+aa-colour = "0.1"
+```
+
 ## Usage
 
 ```rust

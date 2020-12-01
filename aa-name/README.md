@@ -4,6 +4,14 @@
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/aa-name)
 [![Crates.io version](https://img.shields.io/crates/v/aa-name)](https://crates.io/crates/aa-name/)
 
+## Setup
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+aa-name = "0.1"
+```
 
 ## Contributing
 

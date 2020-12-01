@@ -3,7 +3,7 @@ name = "aa-colour"
 description = """
 Add some colours to your amino acids.
 """
-version = "0.1.5-alpha.1"
+version = "0.1.4"
 authors = ["Jean Manguy <jean@manguy.eu>"]
 edition = "2018"
 categories = ["science"]
